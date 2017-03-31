@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans 
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
 http://www.springframework.org/schema/context 
-http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+http://www.springframework.org/schema/context/spring-context.xsd 
 http://www.springframework.org/schema/mvc 
-http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
-
-	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
- 	<context:component-scan base-package="com.lfangfang.*.controller"/>
- 	
- 	<!-- 登录拦截器 -->
- 	<mvc:interceptors>
-		<mvc:interceptor>
-			 <mvc:mapping path="/**"/>
-			 <bean class="com.lfangfang.common.interceptor.LoginInterceptor"></bean> 
-		</mvc:interceptor>
-	</mvc:interceptors>
+<context:component-scan base-package="com.lfangfang.*.controller" />
 	
- 	<!--避免IE执行AJAX时,返回JSON出现下载文件 -->
-	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+	
+	<!--避免IE执行AJAX时,返回JSON出现下载文件 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/html;charset=UTF-8</value>
 			</list>
 		</property>
 	</bean>
-    <mvc:annotation-driven />  
-	    
-	<!--  启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<mvc:annotation-driven />
+
+	<!-- 配置返回JSON -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
 				<ref bean="mappingJacksonHttpMessageConverter" /><!-- json转换器 -->
@@ -39,9 +37,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	</bean>
 
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
 
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding">
 			<value>UTF-8</value>
 		</property>
@@ -52,5 +53,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 			<value>4096</value>
 		</property>
 	</bean>
-
+	
+	<!-- <bean id="exceptionHandler" class="com.lfangfang.common.exception.handler.DefaultExceptionHandler"></bean>
+ -->
 </beans>

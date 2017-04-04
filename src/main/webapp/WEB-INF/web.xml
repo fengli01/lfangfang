@@ -35,9 +35,7 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-	<listener>
-		<listener-class>com.baidu.backstage.common.listener.ContextInitListener</listener-class>
-	</listener>
+	
 
 
 	<!-- spring mvc servlet -->

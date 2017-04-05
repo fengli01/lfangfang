@@ -9,7 +9,7 @@ http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/mvc 
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-<context:component-scan base-package="com.lfangfang.*.controller" />
+<context:component-scan base-package="com.lfangfang.*" />
 	
 	
 	<!--避免IE执行AJAX时,返回JSON出现下载文件 -->

@@ -24,4 +24,26 @@ public class UserInfoServiceImpl implements UserInfoService
         return userInfoMapper.insertSelective(userInfo);
     }
     
+    @Override
+    public int remove(int id)
+    {
+        LOGGER.info("id:" + id);
+        
+        return userInfoMapper.deleteByPrimaryKey(id);
+    }
+    
+    @Override
+    public int modifyUser(UserInfo userInfo)
+    {
+        LOGGER.info("userInfo:" + userInfo);
+        return userInfoMapper.updateByPrimaryKeySelective(userInfo);
+    }
+    
+    @Override
+    public UserInfo findById(int id)
+    {
+        LOGGER.info("id:" + id);
+        return userInfoMapper.selectByPrimaryKey(id);
+    }
+    
 }

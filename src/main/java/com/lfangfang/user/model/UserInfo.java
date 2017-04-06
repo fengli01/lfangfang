@@ -1,6 +1,7 @@
 package com.lfangfang.user.model;
 
 import java.util.Date;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class UserInfo {
     private Integer id;
@@ -71,5 +72,10 @@ public class UserInfo {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+    
+    @Override
+    public String toString(){
+        return ToStringBuilder.reflectionToString(this);
     }
 }

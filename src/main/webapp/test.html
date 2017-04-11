@@ -61,12 +61,28 @@
 		
 		// 删除用户
 		$("#delUser").click(function(){
-			var url = "api/userinfo/"+$("#id").val()+"/remove";
+			var url = "api/userinfo/"+$("#id1").val()+"/remove";
 			//console.info(data);
 			$.ajax({
 				url:url,
 				type:"delete",
 			//	data:data,
+				success:function(data){
+					console.info(data);
+				}
+			});
+		});
+		
+		
+		// 修改用户
+		$("#modifyUser").click(function(){
+			var form = $("form#modify").eq(0);
+			var data = form.serializeObj();
+			console.info(data);
+			$.ajax({
+				url:"api/userinfo/modify",
+				type:"put",
+				data:data,
 				success:function(data){
 					console.info(data);
 				}
@@ -89,8 +105,20 @@
 	
 	<form action="" id="del">
 		<ul>
-			<li>删除id：<input id="id" name="id"></li>
+			<li>删除id：<input id="id1"></li>
     		<li><input id="delUser" type="button" value="提交"/></li>
+		</ul>
+	</form>
+	
+	<form action="" id="modify">
+		<ul>
+			<li>修改id:<input id="id"></li>
+			<li>用户名：<input name="userName"></li>
+    		<li>昵称：<input name="nickName"/></li>
+    		<li>姓名：<input name="name"/></li>
+    		<li>密码：<input name="password"/></li>
+    		<li>状态：<input name="status"/></li>
+    		<li><input id="modifyUser" type="button" value="提交"/></li>
 		</ul>
 	</form>
 </body>

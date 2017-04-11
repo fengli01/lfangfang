@@ -44,6 +44,7 @@
 			return serializeObj;
 		};
 		
+		// 添加用户
 		$("#addUser").click(function(){
 			var form = $("form").eq(0);
 			var data = form.serializeObj();
@@ -57,11 +58,26 @@
 				}
 			});
 		});
+		
+		// 删除用户
+		$("#delUser").click(function(){
+			alert("d");
+			var url = "api/userinfo/".append($("#id").val()).append("/remove");
+			//console.info(data);
+			$.ajax({
+				url:url,
+				type:"delete",
+				data:data,
+				success:function(data){
+					console.info(data);
+				}
+			});
+		});
 	});
 </script>
 </head>
 <body>
-	<form action="">
+	<!-- <form action="">
 		<ul>
 			<li>用户名：<input name="userName"></li>
     		<li>昵称：<input name="nickName"/></li>
@@ -69,6 +85,13 @@
     		<li>密码：<input name="password"/></li>
     		<li>状态：<input name="status"/></li>
     		<li><input id="addUser" type="button" value="提交"/></li>
+		</ul>
+	</form> -->
+	
+	<form action="" id="del">
+		<ul>
+			<li>删除id：<input id="id" name="id"></li>
+    		<li><input id="delUser" type="button" value="提交"/></li>
 		</ul>
 	</form>
 </body>

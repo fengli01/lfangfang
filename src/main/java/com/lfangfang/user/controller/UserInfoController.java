@@ -31,7 +31,7 @@ public class UserInfoController extends BaseController
     
     /**
      * 
-     * @Description: TODO
+     * @Description: 新增
      * @author fengli
      * @date 2017年4月6日 下午1:22:40
      *
@@ -47,7 +47,7 @@ public class UserInfoController extends BaseController
     }
     
     /**
-     * @Description: TODO
+     * @Description: 删除
      * @author fengli
      * @date 2017年4月6日 下午1:34:04
      *
@@ -63,7 +63,7 @@ public class UserInfoController extends BaseController
     }
     
     /**
-     * @Description: TODO
+     * @Description: 修改
      * @author fengli
      * @date 2017年4月6日 下午1:34:07
      *
@@ -73,13 +73,13 @@ public class UserInfoController extends BaseController
     @PutMapping("/modify")
     public ModelMap modify(UserInfo userInfo)
     {
-        int count = userInfoService.addUser(userInfo);
+        int count = userInfoService.modifyUser(userInfo);
         
         return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), count);
     }
     
     /**
-     * @Description: TODO
+     * @Description: 查询
      * @author fengli
      * @date 2017年4月6日 下午1:34:10
      *

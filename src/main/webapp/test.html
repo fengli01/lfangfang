@@ -61,13 +61,12 @@
 		
 		// 删除用户
 		$("#delUser").click(function(){
-			alert("d");
-			var url = "api/userinfo/".append($("#id").val()).append("/remove");
+			var url = "api/userinfo/"+$("#id").val()+"/remove";
 			//console.info(data);
 			$.ajax({
 				url:url,
 				type:"delete",
-				data:data,
+			//	data:data,
 				success:function(data){
 					console.info(data);
 				}

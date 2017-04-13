@@ -1,5 +1,6 @@
 package com.lfangfang.user.dao;
 
+import java.util.List;
 import com.lfangfang.user.model.UserInfo;
 
 public interface UserInfoMapper {
@@ -14,4 +15,6 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+    List<UserInfo> selectAll();
 }

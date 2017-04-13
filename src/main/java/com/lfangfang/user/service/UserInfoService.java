@@ -1,5 +1,6 @@
 package com.lfangfang.user.service;
 
+import com.github.pagehelper.PageInfo;
 import com.lfangfang.user.model.UserInfo;
 
 public interface UserInfoService
@@ -43,4 +44,13 @@ public interface UserInfoService
      * @return
      */
     UserInfo findById(int id);
+    
+    /**
+     * @Description: 分页查询
+     * @author fengli
+     * @date 2017年4月13日 下午7:01:48
+     *
+     * @return
+     */
+    PageInfo<UserInfo> findByPage();
 }

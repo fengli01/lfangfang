@@ -56,8 +56,20 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-		<property name="mapperLocations"
-			value="classpath*:com/lfangfang/*/mapping/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath*:com/lfangfang/*/mapping/*Mapper.xml" />
+		
+		<!-- 添加分页插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<value>
+							param1=value1
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

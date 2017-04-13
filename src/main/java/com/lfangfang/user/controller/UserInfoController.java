@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.github.pagehelper.PageInfo;
 import com.lfangfang.common.controller.BaseController;
 import com.lfangfang.common.enums.ResultEnum;
 import com.lfangfang.common.result.MessageUtil;
@@ -92,5 +93,11 @@ public class UserInfoController extends BaseController
         UserInfo userInfo = userInfoService.findById(id);
         
         return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), userInfo);
+    }
+    
+    @GetMapping("/list")
+    public ModelMap findAll(){
+        PageInfo<UserInfo> pageInfo = userInfoService.findByPage();
+        return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), pageInfo);
     }
 }

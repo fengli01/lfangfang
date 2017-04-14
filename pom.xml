@@ -12,12 +12,6 @@
 		<jackson.version>2.9.0.pr2</jackson.version>
 	</properties>
 
-	<parent>
-		<groupId>com.nove</groupId>
-		<artifactId>ecej-nove</artifactId>
-		<version>1.3.1.RELEASE</version>
-	</parent>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -132,6 +126,14 @@
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
 				</configuration>
+			</plugin>
+			<plugin>
+			    <groupId>org.mortbay.jetty</groupId>
+			    <artifactId>maven-jetty-plugin</artifactId>
+			    <version>6.1.26</version>
+			    <configuration>
+			        <scanIntervalSeconds>1</scanIntervalSeconds>
+			    </configuration>
 			</plugin>
 		</plugins>
 	</build>

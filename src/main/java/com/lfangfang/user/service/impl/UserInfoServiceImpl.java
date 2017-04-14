@@ -5,8 +5,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import com.lfangfang.common.result.QueryResult;
 import com.lfangfang.user.dao.UserInfoMapper;
 import com.lfangfang.user.model.UserInfo;
 import com.lfangfang.user.service.UserInfoService;
@@ -49,13 +50,13 @@ public class UserInfoServiceImpl implements UserInfoService
         return userInfoMapper.selectByPrimaryKey(id);
     }
     
-    public PageInfo<UserInfo> findByPage(){
-        PageHelper.startPage(1, 10);
+    @Override
+    public QueryResult<UserInfo> findByPage()
+    {
+        Page<UserInfo> page = PageHelper.startPage(1, 5);
         List<UserInfo> list = userInfoMapper.selectAll();
-        
-        PageInfo<UserInfo> pageInfo = new PageInfo<>(list);
-        
-        return pageInfo;
+        QueryResult<UserInfo> result = new QueryResult<>(list, page.getTotal());
+        return result;
     }
     
 }

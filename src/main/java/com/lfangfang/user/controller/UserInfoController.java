@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.github.pagehelper.PageInfo;
 import com.lfangfang.common.controller.BaseController;
 import com.lfangfang.common.enums.ResultEnum;
 import com.lfangfang.common.result.MessageUtil;
+import com.lfangfang.common.result.QueryResult;
 import com.lfangfang.user.model.UserInfo;
 import com.lfangfang.user.service.UserInfoService;
 
@@ -95,9 +95,17 @@ public class UserInfoController extends BaseController
         return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), userInfo);
     }
     
+    /**
+     * @Description: 分页查询
+     * @author fengli
+     * @date 2017年4月14日 下午2:57:13
+     *
+     * @return
+     */
     @GetMapping("/list")
-    public ModelMap findAll(){
-        PageInfo<UserInfo> pageInfo = userInfoService.findByPage();
-        return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), pageInfo);
+    public ModelMap findAll()
+    {
+        QueryResult<UserInfo> result = userInfoService.findByPage();
+        return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), result);
     }
 }

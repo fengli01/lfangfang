@@ -1,6 +1,6 @@
 package com.lfangfang.user.service;
 
-import com.github.pagehelper.PageInfo;
+import com.lfangfang.common.result.QueryResult;
 import com.lfangfang.user.model.UserInfo;
 
 public interface UserInfoService
@@ -52,5 +52,5 @@ public interface UserInfoService
      *
      * @return
      */
-    PageInfo<UserInfo> findByPage();
+    QueryResult<UserInfo> findByPage();
 }

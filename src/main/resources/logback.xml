@@ -29,8 +29,8 @@
 		<appender-ref ref="appAppender" />
 		<appender-ref ref="consoleAppender"/>
 	</root>
-	<logger name="com.bzn">
-		<level value="INFO" />
+	<logger name="com.lfangfang">
+		<level value="DEBUG" />
 	</logger>
 	<logger name="org.springframework">
 		<level value="INFO" />

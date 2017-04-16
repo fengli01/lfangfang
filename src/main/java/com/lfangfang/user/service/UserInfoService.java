@@ -3,54 +3,53 @@ package com.lfangfang.user.service;
 import com.lfangfang.common.result.QueryResult;
 import com.lfangfang.user.model.UserInfo;
 
-public interface UserInfoService
-{
-    /**
-     * @Description: 添加用户
-     * @author fengli
-     * @date 2017年4月5日 下午1:26:08
-     *
-     * @param userInfo
-     * @return
-     */
-    int addUser(UserInfo userInfo);
-    
-    /**
-     * @Description: 删除用户
-     * @author fengli
-     * @date 2017年4月6日 下午1:26:06
-     *
-     * @param id
-     * @return
-     */
-    int remove(int id);
-    
-    /**
-     * @Description: 修改用户
-     * @author fengli
-     * @date 2017年4月6日 下午1:27:08
-     *
-     * @param userInfo
-     * @return
-     */
-    int modifyUser(UserInfo userInfo);
-    
-    /**
-     * @Description: 根据id查询
-     * @author fengli
-     * @date 2017年4月6日 下午1:26:41
-     *
-     * @param id
-     * @return
-     */
-    UserInfo findById(int id);
-    
-    /**
-     * @Description: 分页查询
-     * @author fengli
-     * @date 2017年4月13日 下午7:01:48
-     *
-     * @return
-     */
-    QueryResult<UserInfo> findByPage();
+public interface UserInfoService {
+	/**
+	 * @Description: 添加用户
+	 * @author fengli
+	 * @date 2017年4月5日 下午1:26:08
+	 *
+	 * @param userInfo
+	 * @return
+	 */
+	int addUser(UserInfo userInfo);
+
+	/**
+	 * @Description: 删除用户
+	 * @author fengli
+	 * @date 2017年4月6日 下午1:26:06
+	 *
+	 * @param id
+	 * @return
+	 */
+	int remove(int id);
+
+	/**
+	 * @Description: 修改用户
+	 * @author fengli
+	 * @date 2017年4月6日 下午1:27:08
+	 *
+	 * @param userInfo
+	 * @return
+	 */
+	int modifyUser(UserInfo userInfo);
+
+	/**
+	 * @Description: 根据id查询
+	 * @author fengli
+	 * @date 2017年4月6日 下午1:26:41
+	 *
+	 * @param id
+	 * @return
+	 */
+	UserInfo findById(int id);
+
+	/**
+	 * 分页查询
+	 * 
+	 * @param pageNumber
+	 * @param pageSize
+	 * @return
+	 */
+	QueryResult<UserInfo> findByPage(Integer pageNumber, Integer pageSize);
 }

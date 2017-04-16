@@ -103,9 +103,9 @@ public class UserInfoController extends BaseController
      * @return
      */
     @GetMapping("/list")
-    public ModelMap findAll()
+    public ModelMap findByPage(Integer pageNumber,Integer pageSize)
     {
-        QueryResult<UserInfo> result = userInfoService.findByPage();
+        QueryResult<UserInfo> result = userInfoService.findByPage(pageNumber,pageSize);
         return MessageUtil.makeModelMap(ResultEnum.OK.getCode(), result);
     }
 }

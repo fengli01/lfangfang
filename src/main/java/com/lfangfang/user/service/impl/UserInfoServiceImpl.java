@@ -51,9 +51,9 @@ public class UserInfoServiceImpl implements UserInfoService
     }
     
     @Override
-    public QueryResult<UserInfo> findByPage()
+    public QueryResult<UserInfo> findByPage(Integer pageNumber, Integer pageSize)
     {
-        Page<UserInfo> page = PageHelper.startPage(1, 5);
+        Page<UserInfo> page = PageHelper.startPage(pageNumber, pageSize);
         List<UserInfo> list = userInfoMapper.selectAll();
         QueryResult<UserInfo> result = new QueryResult<>(list, page.getTotal());
         return result;

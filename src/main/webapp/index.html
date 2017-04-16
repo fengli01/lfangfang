@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="common/easyui/css/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="common/easyui/css/themes/icon.css">
+<!-- <link rel="stylesheet" type="text/css" href="../demo.css"> -->
+
+</head>
+<body>
+	<!-- 列表 -->
+	<table id="dg"></table>
+	
+	<!-- 添加用户表单 -->
+	<div id="dd" style="padding: 20px 0px 0px 20px;">
+		<form id="userForm" method="post">
+			<div style="margin-bottom:20px">
+				<input name="id" style="display: none;">
+				<input class="easyui-textbox" name="userName" style="width:80%" data-options="label:'用户名:'">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="nickName" style="width:80%" data-options="label:'昵称:'">
+			</div>
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" name="name" style="width:80%;" data-options="label:'姓名:'">
+			</div>
+		</form>
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" id="btnSave" style="width:80px">保存</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" id="btnClose" style="width:80px">关闭</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="common/js/jquery.min.js"></script>
+	<script type="text/javascript" src="common/easyui/js/jquery.easyui.min.js"></script>
+	
+	<script type="text/javascript" src="js/jquery-extend.js"></script>
+	<script type="text/javascript" src="js/jquery-easyui-extend.js"></script>
+	<script type="text/javascript" src="js/userinfo.js"></script>
+</body>
+</html>
